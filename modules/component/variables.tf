@@ -18,9 +18,9 @@ variable "log_analytics_workspace_id" {
   type        = string
 }
 
-variable "action_group_ids" {
-  description = "A list of IDs for the action groups"
-  type        = list(string)
+variable "smart_detection_action_group_id" {
+  description = "The ID of the action group to use for 'Smart detection'."
+  type        = string
 }
 
 variable "tags" {

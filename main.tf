@@ -23,11 +23,11 @@ resource "azurerm_monitor_action_group" "this" {
 module "component" {
   source = "./modules/component"
 
-  name                       = var.component_name
-  resource_group_name        = var.resource_group_name
-  location                   = var.location
-  log_analytics_workspace_id = var.log_analytics_workspace_id
-  action_group_ids           = [azurerm_monitor_action_group.this.id]
+  name                            = var.component_name
+  resource_group_name             = var.resource_group_name
+  location                        = var.location
+  log_analytics_workspace_id      = var.log_analytics_workspace_id
+  smart_detection_action_group_id = azurerm_monitor_action_group.this.id
 
   tags = var.tags
 }

@@ -8,9 +8,9 @@ resource "azurerm_application_insights" "this" {
   tags = var.tags
 }
 
-# When creating an Application Insights component,
-# a smart detector alert rule will be automatically created for you.
-# We choose to create it explicitly, so that it is managed by Terraform.
+# Enable "Smart detection".
+# "Smart detection" docs: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-failure-diagnostics
+# Manage "Smart detection" rules using ARM: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-arm-config
 resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   name                = "Failure Anamolies - ${azurerm_application_insights.this.name}"
   resource_group_name = var.resource_group_name
@@ -22,6 +22,6 @@ resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   scope_resource_ids  = [azurerm_application_insights.this.id]
 
   action_group {
-    ids = var.action_group_ids
+    ids = var.smart_detection_action_group_id
   }
 }
