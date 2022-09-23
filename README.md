@@ -42,10 +42,10 @@ Terraform module which creates an Azure Foobar resource.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_action_group_id"></a> [action\_group\_id](#output\_action\_group\_id) | The ID of this action group. |
-| <a name="output_action_group_name"></a> [action\_group\_name](#output\_action\_group\_name) | The name of this action group. |
 | <a name="output_component_id"></a> [component\_id](#output\_component\_id) | The ID of this Application Insights component. |
 | <a name="output_component_name"></a> [component\_name](#output\_component\_name) | The name of this Application Insights component. |
 | <a name="output_connection_string"></a> [connection\_string](#output\_connection\_string) | The connection string of this Application Insights component. |
 | <a name="output_instrumentation_key"></a> [instrumentation\_key](#output\_instrumentation\_key) | The instrumentation key of this Application Insights component. |
+| <a name="output_smart_detection_action_group_id"></a> [smart\_detection\_action\_group\_id](#output\_smart\_detection\_action\_group\_id) | The ID of this Smart Detection action group. |
+| <a name="output_smart_detection_action_group_name"></a> [smart\_detection\_action\_group\_name](#output\_smart\_detection\_action\_group\_name) | The name of this Smart Detection action group. |
 <!-- END_TF_DOCS -->
