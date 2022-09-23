@@ -11,7 +11,7 @@ resource "azurerm_application_insights" "this" {
 # Configure a Failure Anomalies alert rule.
 # Docs: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-arm-config#failure-anomalies-alert-rule
 resource "azurerm_monitor_smart_detector_alert_rule" "this" {
-  name                = "Failure Anamolies - ${azurerm_application_insights.this.name}"
+  name                = "Failure Anomalies - ${azurerm_application_insights.this.name}"
   resource_group_name = var.resource_group_name
   description         = "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls."
   enabled             = true
