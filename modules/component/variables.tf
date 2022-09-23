@@ -1,4 +1,4 @@
-variable "component_name" {
+variable "name" {
   description = "The name of this Application Insights component."
   type        = string
 }
@@ -15,6 +15,11 @@ variable "location" {
 
 variable "log_analytics_workspace_id" {
   description = "The ID of the Log Analytics workspace to send diagnostics to."
+  type        = string
+}
+
+variable "smart_detection_action_group_id" {
+  description = "The ID of the Smart Detection action group to use for Failure Anomalies alerts."
   type        = string
 }
 
