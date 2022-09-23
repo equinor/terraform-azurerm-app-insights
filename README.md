@@ -1,6 +1,6 @@
-# Azure Foobar Terraform module
+# Azure Application Insights Terraform module
 
-Terraform module which creates an Azure Foobar resource.
+Terraform module which creates an Azure Application Insights resources.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
