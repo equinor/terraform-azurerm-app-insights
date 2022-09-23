@@ -21,6 +21,6 @@ resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   scope_resource_ids  = [azurerm_application_insights.this.id]
 
   action_group {
-    ids = var.smart_detection_action_group_id
+    ids = [var.smart_detection_action_group_id]
   }
 }
