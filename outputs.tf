@@ -27,5 +27,5 @@ output "smart_detection_action_group_name" {
 
 output "smart_detection_action_group_id" {
   description = "The ID of this Smart Detection action group."
-  value       = azurerm_monitor_action_group.this.name
+  value       = azurerm_monitor_action_group.this.id
 }
