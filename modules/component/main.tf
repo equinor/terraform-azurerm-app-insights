@@ -8,9 +8,8 @@ resource "azurerm_application_insights" "this" {
   tags = var.tags
 }
 
-# Enable "Smart detection".
-# "Smart detection" docs: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-failure-diagnostics
-# Manage "Smart detection" rules using ARM: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-arm-config
+# Configure a Failure Anomalies alert rule.
+# Docs: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-arm-config#failure-anomalies-alert-rule
 resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   name                = "Failure Anamolies - ${azurerm_application_insights.this.name}"
   resource_group_name = var.resource_group_name

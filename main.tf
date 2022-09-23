@@ -1,6 +1,5 @@
-# When creating an Application Insights component,
-# an action group will be automatically created for you.
-# We choose to create it explicitly, so that it is managed by Terraform.
+# Create Smart Detection action group.
+# Docs: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-failure-diagnostics
 resource "azurerm_monitor_action_group" "this" {
   name                = "Application Insights Smart Detection"
   resource_group_name = var.resource_group_name

@@ -19,7 +19,7 @@ variable "log_analytics_workspace_id" {
 }
 
 variable "smart_detection_action_group_id" {
-  description = "The ID of the action group to use for 'Smart detection'."
+  description = "The ID of the Smart Detection action group to use for Failure Anomalies alerts."
   type        = string
 }
 
