@@ -32,7 +32,7 @@ Terraform module which creates an Azure Application Insights resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_component_name"></a> [component\_name](#input\_component\_name) | The name of this Application Insights component. | `string` | n/a | yes |
+| <a name="input_components"></a> [components](#input\_components) | n/a | <pre>map(object({<br>    name = string<br>  }))</pre> | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location to create the resources in. | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the Log Analytics workspace to send diagnostics to. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group to create the resources in. | `string` | n/a | yes |
