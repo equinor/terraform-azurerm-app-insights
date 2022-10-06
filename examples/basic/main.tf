@@ -28,12 +28,8 @@ module "app_insights" {
   log_analytics_workspace_id = module.log_analytics.workspace_id
 
   components = {
-    "api" = {
-      name = "appi-${random_id.this.hex}-api"
-    }
-
     "web" = {
-      name = "appi-${random_id.this.hex}-web"
+      name = "appi-${random_id.this.hex}"
     }
   }
 }

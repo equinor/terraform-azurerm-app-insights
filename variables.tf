@@ -14,7 +14,7 @@ variable "log_analytics_workspace_id" {
 }
 
 variable "components" {
-  # TODO: Add a description.
+  description = "A map of identifier => Application Insights component objects."
   type = map(object({
     name = string
   }))

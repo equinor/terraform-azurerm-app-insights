@@ -1,12 +1,12 @@
 output "component_ids" {
-  description = "A mapping of IDs for these Application Insights components."
+  description = "A map of identifier => Application Insights component IDs."
   value = {
     for k, v in module.component : k => v.id
   }
 }
 
 output "instrumentation_keys" {
-  description = "A mapping of instrumentation keys for these Application Insights components."
+  description = "A map of identifier => Application Insights component instrumentation keys."
   value = {
     for k, v in module.component : k => v.instrumentation_key
   }
@@ -14,7 +14,7 @@ output "instrumentation_keys" {
 }
 
 output "connection_strings" {
-  description = "A mapping of connection strings for these Application Insights components."
+  description = "A map of identifier => Application Insights component connection strings."
   value = {
     for k, v in module.component : k => v.connection_string
   }
