@@ -23,8 +23,13 @@ module "app_insights" {
   # source = "github.com/equinor/terraform-azurerm-app-insights?ref=v0.0.0"
   source = "../.."
 
-  component_name             = "appi-${random_id.this.hex}"
   resource_group_name        = azurerm_resource_group.this.name
   location                   = azurerm_resource_group.this.location
   log_analytics_workspace_id = module.log_analytics.workspace_id
+
+  components = {
+    "web" = {
+      name = "appi-${random_id.this.hex}"
+    }
+  }
 }

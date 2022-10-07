@@ -32,7 +32,7 @@ Terraform module which creates an Azure Application Insights resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_component_name"></a> [component\_name](#input\_component\_name) | The name of this Application Insights component. | `string` | n/a | yes |
+| <a name="input_components"></a> [components](#input\_components) | A map of identifier => Application Insights component objects. | <pre>map(object({<br>    name = string<br>  }))</pre> | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location to create the resources in. | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the Log Analytics workspace to send diagnostics to. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group to create the resources in. | `string` | n/a | yes |
@@ -42,10 +42,9 @@ Terraform module which creates an Azure Application Insights resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_component_id"></a> [component\_id](#output\_component\_id) | The ID of this Application Insights component. |
-| <a name="output_component_name"></a> [component\_name](#output\_component\_name) | The name of this Application Insights component. |
-| <a name="output_connection_string"></a> [connection\_string](#output\_connection\_string) | The connection string of this Application Insights component. |
-| <a name="output_instrumentation_key"></a> [instrumentation\_key](#output\_instrumentation\_key) | The instrumentation key of this Application Insights component. |
+| <a name="output_component_ids"></a> [component\_ids](#output\_component\_ids) | A map of identifier => Application Insights component IDs. |
+| <a name="output_connection_strings"></a> [connection\_strings](#output\_connection\_strings) | A map of identifier => Application Insights component connection strings. |
+| <a name="output_instrumentation_keys"></a> [instrumentation\_keys](#output\_instrumentation\_keys) | A map of identifier => Application Insights component instrumentation keys. |
 | <a name="output_smart_detection_action_group_id"></a> [smart\_detection\_action\_group\_id](#output\_smart\_detection\_action\_group\_id) | The ID of this Smart Detection action group. |
 | <a name="output_smart_detection_action_group_name"></a> [smart\_detection\_action\_group\_name](#output\_smart\_detection\_action\_group\_name) | The name of this Smart Detection action group. |
 <!-- END_TF_DOCS -->

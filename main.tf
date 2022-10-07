@@ -20,9 +20,10 @@ resource "azurerm_monitor_action_group" "this" {
 }
 
 module "component" {
-  source = "./modules/component"
+  for_each = var.components
+  source   = "./modules/component"
 
-  name                            = var.component_name
+  name                            = each.value.name
   resource_group_name             = var.resource_group_name
   location                        = var.location
   log_analytics_workspace_id      = var.log_analytics_workspace_id
