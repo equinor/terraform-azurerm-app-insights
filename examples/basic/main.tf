@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "this" {
 }
 
 module "log_analytics" {
-  source = "github.com/equinor/terraform-azurerm-log-analytics?ref=v1.1.0"
+  source = "github.com/equinor/terraform-azurerm-log-analytics?ref=v1.2.0"
 
   workspace_name      = "log-${random_id.this.hex}"
   resource_group_name = azurerm_resource_group.this.name
@@ -20,16 +20,11 @@ module "log_analytics" {
 }
 
 module "app_insights" {
-  # source = "github.com/equinor/terraform-azurerm-app-insights?ref=v0.0.0"
+  # source = "github.com/equinor/terraform-azurerm-app-insights"
   source = "../.."
 
-  resource_group_name        = azurerm_resource_group.this.name
-  location                   = azurerm_resource_group.this.location
-  log_analytics_workspace_id = module.log_analytics.workspace_id
-
-  components = {
-    "web" = {
-      name = "appi-${random_id.this.hex}"
-    }
-  }
+  component_name      = "appi-${random_id.this.hex}"
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  workspace_id        = module.log_analytics.workspace_id
 }
