@@ -1,10 +1,10 @@
 locals {
-  enabled_web_test  = var.enabled == true
-  standard_web_test = local.enabled_web_test ? azurerm_application_insights_standard_web_test.this[0] : null
+  is_standard = var.kind == "standard"
+  web_test    = local.is_standard ? azurerm_application_insights_standard_web_test.this[0] : azurerm_application_insights_web_test.this[0]
 }
 
 resource "azurerm_application_insights_standard_web_test" "this" {
-  count = local.enabled_web_test ? 1 : 0
+  count = local.is_standard ? 1 : 0
 
   name                    = var.name
   resource_group_name     = var.resource_group_name
@@ -60,6 +60,28 @@ resource "azurerm_application_insights_standard_web_test" "this" {
       }
     }
   }
+
+  tags = var.tags
+}
+
+resource "azurerm_application_insights_web_test" "this" {
+  count = local.is_standard ? 0 : 1
+
+  name                    = var.name
+  resource_group_name     = var.resource_group_name
+  location                = var.location
+  application_insights_id = var.component_id
+
+  description   = var.description
+  enabled       = var.enabled
+  kind          = var.kind
+  frequency     = var.frequency
+  timeout       = var.timeout
+  retry_enabled = var.retry_enabled
+
+  geo_locations = var.geo_locations
+
+  configuration = var.configuration
 
   tags = var.tags
 }
