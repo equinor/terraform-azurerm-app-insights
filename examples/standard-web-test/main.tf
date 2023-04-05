@@ -1,5 +1,9 @@
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
 }
 
 resource "random_id" "this" {
@@ -38,33 +42,9 @@ module "standard_web_test" {
   location            = azurerm_resource_group.this.location
   component_id        = module.app_insights.component_id
 
-  description   = "Standard Web Test example."
-  kind          = "standard"
-  enabled       = true
-  frequency     = 300
-  retry_enabled = true
-  timeout       = 30
-
-  geo_locations = [
-    "emea-gb-db3-azr", # North Europe
-    "emea-nl-ams-azr"  # West Europe
-  ]
+  kind = "standard"
 
   request = {
-    body                             = "Standard Web Test request body."
-    follow_redirects_enabled         = true
-    http_verb                        = "GET"
-    parse_dependent_requests_enabled = true
-    url                              = "http://www.example.com"
-
-    header = {}
-  }
-
-  validation_rules = {
-    expected_status_code        = 200
-    ssl_cert_remaining_lifetime = 7
-    ssl_check_enabled           = true
-
-    content = []
+    url = "http://www.example.com"
   }
 }

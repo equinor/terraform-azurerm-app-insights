@@ -42,16 +42,6 @@ module "classic_web_test" {
   location            = azurerm_resource_group.this.location
   component_id        = module.app_insights.component_id
 
-  description   = "Classic Web Test example."
-  kind          = "ping"
   configuration = data.local_file.example.content
-  enabled       = true
-  frequency     = 300
-  retry_enabled = true
-  timeout       = 30
-
-  geo_locations = [
-    "emea-gb-db3-azr", # North Europe
-    "emea-nl-ams-azr"  # West Europe
-  ]
+  kind          = "ping"
 }

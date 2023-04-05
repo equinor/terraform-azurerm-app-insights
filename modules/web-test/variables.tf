@@ -19,13 +19,13 @@ variable "name" {
 }
 
 variable "configuration" {
-  description = "An XML configuration specification for this Web Test."
+  description = "An XML configuration specification for this Classic Web Test."
   type        = string
   default     = null
 }
 
 variable "kind" {
-  description = "The kind of web test that this Web Test watches."
+  description = "The kind of web test that this Web Test watches. Accepted values for Classic Web Test is `ping` or `multistep`."
   type        = string
   default     = "standard"
 
@@ -44,7 +44,7 @@ variable "description" {
 variable "enabled" {
   description = "Is this Web Test enabled?"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "frequency" {
@@ -56,7 +56,7 @@ variable "frequency" {
 variable "retry_enabled" {
   description = "Is retry on Web Test failure enabled?"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "timeout" {
@@ -68,7 +68,13 @@ variable "timeout" {
 variable "geo_locations" {
   description = "A list of physical locations to run this Web Test."
   type        = list(string)
-  default     = ["emea-gb-db3-azr"] # North Europe
+  default = [
+    "emea-nl-ams-azr",  # West Europe
+    "us-ca-sjc-azr",    # West US
+    "apac-jp-kaw-edge", # Japan East
+    "emea-ch-zrh-edge", # France South
+    "emea-au-syd-edge"  # Australia East
+  ]
 }
 
 variable "request" {
@@ -77,9 +83,9 @@ variable "request" {
   type = object({
     url                              = string
     body                             = optional(string, null)
-    follow_redirects_enabled         = optional(bool, true)
+    follow_redirects_enabled         = optional(bool, false)
     http_verb                        = optional(string, "GET")
-    parse_dependent_requests_enabled = optional(bool, true)
+    parse_dependent_requests_enabled = optional(bool, false)
 
     header = optional(map(object({
       name  = string
@@ -100,8 +106,8 @@ variable "validation_rules" {
 
     content = optional(list(object({
       content_match      = string
-      ignore_case        = optional(bool, true)
-      pass_if_text_found = optional(bool, false)
+      ignore_case        = optional(bool, false)
+      pass_if_text_found = optional(bool, true)
     })), [])
   })
 
