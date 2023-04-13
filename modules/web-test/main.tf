@@ -62,6 +62,13 @@ resource "azurerm_application_insights_standard_web_test" "this" {
   }
 
   tags = var.tags
+
+  lifecycle {
+    precondition {
+      condition     = var.kind == "standard" ? var.request != null : var.request == null
+      error_message = "Request block is required when Web Test kind is set to \"standard\"."
+    }
+  }
 }
 
 resource "azurerm_application_insights_web_test" "this" {
@@ -84,4 +91,11 @@ resource "azurerm_application_insights_web_test" "this" {
   configuration = var.configuration
 
   tags = var.tags
+
+  lifecycle {
+    precondition {
+      condition     = var.kind != "standard" ? var.request == null : var.request != null
+      error_message = "Request block is only required when Web Test kind is set to \"standard\"."
+    }
+  }
 }

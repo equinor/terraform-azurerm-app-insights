@@ -68,6 +68,7 @@ variable "timeout" {
 variable "geo_locations" {
   description = "A list of physical locations to run this Web Test."
   type        = list(string)
+
   default = [
     "emea-nl-ams-azr",  # West Europe
     "us-ca-sjc-azr",    # West US
@@ -97,7 +98,7 @@ variable "request" {
 }
 
 variable "validation_rules" {
-  description = "The validaion rules for this Standard Web Test."
+  description = "The validation rules for this Standard Web Test."
 
   type = object({
     expected_status_code        = optional(number, 200)
