@@ -19,22 +19,19 @@ resource "azurerm_application_insights_standard_web_test" "this" {
 
   geo_locations = var.geo_locations
 
-  dynamic "request" {
-    for_each = var.request != null ? [var.request] : []
+  request {
+    url                              = var.request_url
+    body                             = var.request_body
+    follow_redirects_enabled         = var.request_follow_redirects_enabled
+    http_verb                        = var.request_http_verb
+    parse_dependent_requests_enabled = var.request_parse_dependent_requests_enabled
 
-    content {
-      url                              = request.value["url"]
-      follow_redirects_enabled         = request.value["follow_redirects_enabled"]
-      http_verb                        = request.value["http_verb"]
-      parse_dependent_requests_enabled = request.value["parse_dependent_requests_enabled"]
+    dynamic "header" {
+      for_each = var.request_header
 
-      dynamic "header" {
-        for_each = request.value["header"]
-
-        content {
-          name  = header.value["name"]
-          value = header.value["value"]
-        }
+      content {
+        name  = var.request_header["name"]
+        value = var.request_header["value"]
       }
     }
   }
@@ -63,8 +60,8 @@ resource "azurerm_application_insights_standard_web_test" "this" {
 
   lifecycle {
     precondition {
-      condition     = var.request != null
-      error_message = "Request block is required when Web Test kind is set to \"standard\"."
+      condition     = var.request_url != null
+      error_message = "request_url is required when Web Test kind is set to \"standard\"."
     }
   }
 }

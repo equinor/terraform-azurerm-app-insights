@@ -41,10 +41,7 @@ module "standard_web_test" {
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
   component_id        = module.app_insights.component_id
+  kind                = "standard"
 
-  kind = "standard"
-
-  request = {
-    url = "http://www.example.com"
-  }
+  request_url = "http://www.example.com"
 }

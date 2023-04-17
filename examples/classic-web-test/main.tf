@@ -41,7 +41,7 @@ module "classic_web_test" {
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
   component_id        = module.app_insights.component_id
+  kind                = "ping"
 
   configuration = data.local_file.example.content
-  kind          = "ping"
 }
