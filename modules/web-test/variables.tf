@@ -134,7 +134,7 @@ variable "validation_rules" {
     })), [])
   })
 
-  default = null
+  default = {}
 }
 
 variable "tags" {
