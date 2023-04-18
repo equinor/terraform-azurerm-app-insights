@@ -43,5 +43,5 @@ module "standard_web_test" {
   component_id        = module.app_insights.component_id
   kind                = "standard"
 
-  request_url = "http://www.example.com"
+  request_url = "https://www.example.com"
 }
