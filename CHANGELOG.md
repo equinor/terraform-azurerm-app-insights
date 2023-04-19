@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v3.0.0...v3.1.0) (2023-04-19)
+
+
+### Features
+
+* add web test submodule ([#12](https://github.com/equinor/terraform-azurerm-app-insights/issues/12)) ([62764ea](https://github.com/equinor/terraform-azurerm-app-insights/commit/62764eace0c17b8bacc53791e0d77159fc7db1a1))
+
 ## [3.0.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v2.0.0...v3.0.0) (2023-01-27)
 
 
