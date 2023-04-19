@@ -1,5 +1,9 @@
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
 }
 
 resource "random_id" "this" {
@@ -27,4 +31,17 @@ module "app_insights" {
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
   workspace_id        = module.log_analytics.workspace_id
+}
+
+module "standard_web_test" {
+  # source = "github.com/equinor/terraform-azurerm-app-insights//modules/web-test?ref=v0.0.0"
+  source = "../../modules/web-test"
+
+  name                = "standard-web-test-${random_id.this.hex}"
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  component_id        = module.app_insights.component_id
+  kind                = "standard"
+
+  request_url = "https://www.example.com"
 }

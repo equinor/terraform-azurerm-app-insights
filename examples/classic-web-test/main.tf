@@ -28,3 +28,20 @@ module "app_insights" {
   location            = azurerm_resource_group.this.location
   workspace_id        = module.log_analytics.workspace_id
 }
+
+data "local_file" "example" {
+  filename = "${path.module}/example.xml"
+}
+
+module "classic_web_test" {
+  # source = "github.com/equinor/terraform-azurerm-app-insights//modules/web-test?ref=v0.0.0"
+  source = "../../modules/web-test"
+
+  name                = "classic-web-test-${random_id.this.hex}"
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  component_id        = module.app_insights.component_id
+  kind                = "ping"
+
+  configuration = data.local_file.example.content
+}
