@@ -66,7 +66,7 @@ variable "timeout" {
 }
 
 variable "geo_locations" {
-  description = "A list of physical locations to run this Web Test."
+  description = "A list of physical locations to run this Web Test." # Complete list of Azure locations: https://learn.microsoft.com/nb-no/previous-versions/azure/azure-monitor/app/monitor-web-app-availability#azure
   type        = list(string)
 
   default = [
