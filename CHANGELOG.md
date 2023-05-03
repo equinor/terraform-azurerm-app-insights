@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v3.1.0...v3.2.0) (2023-05-03)
+
+
+### Features
+
+* configure smart detection rules ([#15](https://github.com/equinor/terraform-azurerm-app-insights/issues/15)) ([8ca3422](https://github.com/equinor/terraform-azurerm-app-insights/commit/8ca34229484f08e77c18860b8a9f96ed5c8a8d79))
+
 ## [3.1.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v3.0.0...v3.1.0) (2023-04-19)
 
 
