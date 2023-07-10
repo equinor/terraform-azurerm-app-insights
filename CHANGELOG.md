@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v3.2.0...v4.0.0) (2023-07-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove variable `smart_detection_rules` and add variable `action_group_id`.
+
+### Features
+
+* migrate from smart detection rules to alert rules ([#19](https://github.com/equinor/terraform-azurerm-app-insights/issues/19)) ([b634f80](https://github.com/equinor/terraform-azurerm-app-insights/commit/b634f80a504aec1c8236aefe03370a6a91ff79db)), closes [#17](https://github.com/equinor/terraform-azurerm-app-insights/issues/17)
+
 ## [3.2.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v3.1.0...v3.2.0) (2023-05-03)
 
 
