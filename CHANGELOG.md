@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v4.0.0...v5.0.0) (2023-08-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* don't create web tests ([#22](https://github.com/equinor/terraform-azurerm-app-insights/issues/22))
+
+### Features
+
+* don't create web tests ([#22](https://github.com/equinor/terraform-azurerm-app-insights/issues/22)) ([50a4315](https://github.com/equinor/terraform-azurerm-app-insights/commit/50a431510b1483b6bad82a10fe15fc1fca37061e))
+
 ## [4.0.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v3.2.0...v4.0.0) (2023-07-10)
 
 
