@@ -57,6 +57,10 @@ resource "azurerm_application_insights" "this" {
   application_type    = "web"
   workspace_id        = var.workspace_id
 
+  # Irrelevant when "workspace_id" is set.
+  # Retention must be configured in Log Analytics workspace.
+  retention_in_days = null
+
   tags = var.tags
 }
 
