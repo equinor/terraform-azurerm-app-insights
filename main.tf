@@ -56,6 +56,7 @@ resource "azurerm_application_insights" "this" {
   location            = var.location
   application_type    = "web"
   workspace_id        = var.workspace_id
+  retention_in_days   = var.retention_in_days
 
   tags = var.tags
 }
