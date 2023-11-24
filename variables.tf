@@ -23,12 +23,6 @@ variable "action_group_id" {
   type        = string
 }
 
-variable "retention_in_days" {
-  description = "The retention period in days."
-  type        = number
-  default     = 90
-}
-
 variable "tags" {
   description = "A map of tags to assign to the resources."
   type        = map(string)
