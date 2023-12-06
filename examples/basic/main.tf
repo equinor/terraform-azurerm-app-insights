@@ -10,22 +10,17 @@ resource "random_id" "this" {
   byte_length = 8
 }
 
-resource "azurerm_resource_group" "this" {
-  name     = "rg-${random_id.this.hex}"
-  location = var.location
-}
-
 module "log_analytics" {
   source = "github.com/equinor/terraform-azurerm-log-analytics?ref=v1.4.0"
 
   workspace_name      = "log-${random_id.this.hex}"
-  resource_group_name = azurerm_resource_group.this.name
-  location            = azurerm_resource_group.this.location
+  resource_group_name = var.resource_group_name
+  location            = var.location
 }
 
 resource "azurerm_monitor_action_group" "this" {
   name                = "Application Insights Smart Detection"
-  resource_group_name = azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   short_name          = "SmartDetect"
   enabled             = true
 
@@ -47,8 +42,8 @@ module "app_insights" {
   source = "../.."
 
   component_name      = "appi-${random_id.this.hex}"
-  resource_group_name = azurerm_resource_group.this.name
-  location            = azurerm_resource_group.this.location
+  resource_group_name = var.resource_group_name
+  location            = var.location
   workspace_id        = module.log_analytics.workspace_id
   action_group_id     = azurerm_monitor_action_group.this.id
 }
