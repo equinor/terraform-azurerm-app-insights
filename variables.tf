@@ -23,14 +23,14 @@ variable "action_group_id" {
   type        = string
 }
 
+variable "smart_detector_alert_rule_name_template" {
+  description = "The string template to use for smart detector alert rule names. Available template variables are \"smart_detector_alert_rule_name\" and \"component_name\"."
+  type        = string
+  default     = "$${ smart_detector_alert_rule_name } - $${component_name}"
+}
+
 variable "tags" {
   description = "A map of tags to assign to the resources."
   type        = map(string)
   default     = {}
-}
-
-variable "prepend_description" {
-  description = "Changes the location of the description in the smart detector alert rule names"
-  type        = bool
-  default     = true
 }
