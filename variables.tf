@@ -28,3 +28,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "prepend_description" {
+  description = "Changes the location of the description in the smart detector alert rule names"
+  type        = bool
+  default     = true
+}

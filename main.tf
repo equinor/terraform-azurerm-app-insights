@@ -67,7 +67,7 @@ resource "azurerm_application_insights" "this" {
 resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   for_each = local.smart_detector_alert_rules
 
-  name                = "${each.value["name"]} - ${azurerm_application_insights.this.name}"
+  name                = var.prepend_description ? "${each.value["name"]} - ${azurerm_application_insights.this.name}" : "${azurerm_application_insights.this.name} - ${each.value["name"]}"  
   resource_group_name = var.resource_group_name
   scope_resource_ids  = [azurerm_application_insights.this.id]
   enabled             = true
