@@ -27,6 +27,7 @@ variable "smart_detector_alert_rule_name_template" {
   description = "The template to use for smart detector alert rule names. Available template variables are \"smart_detector_alert_rule_name\" and \"component_name\"."
   type        = string
   default     = "$${smart_detector_alert_rule_name} - $${component_name}"
+  nullable    = false
 }
 
 variable "tags" {
