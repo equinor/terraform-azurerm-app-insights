@@ -71,7 +71,7 @@ resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   # Possible options are:
   # - "template_file" data source: superseded by "templatefile" function.
   # - "templatefile" function: only supports template file, not template string.
-  name                = replace(replace(var.smart_detector_alert_rule_name_template, "$${ smart_detector_alert_rule_name }", each.value.name), "$${component_name}", azurerm_application_insights.this.name)
+  name                = replace(replace(var.smart_detector_alert_rule_name_template, "$${ smart_detector_alert_rule_name }", each.value.name), "$${component_name}", var.component_name)
   resource_group_name = var.resource_group_name
   scope_resource_ids  = [azurerm_application_insights.this.id]
   enabled             = true
