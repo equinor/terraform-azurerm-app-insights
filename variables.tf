@@ -24,37 +24,37 @@ variable "action_group_id" {
 }
 
 variable "dependency_performance_degradation_detector_rule_name" {
-  description = "A name for this dependency perfomance degradation detector alert rule."
+  description = "A name for this \"DependencyPerformanceDegradationDetector\" alert rule."
   type        = string
   default     = null
 }
 
 variable "exception_volume_changed_detector_rule_name" {
-  description = "A name for this exception volume changed detector alert rule."
+  description = "A name for this \"ExceptionVolumeChangedDetector\" alert rule."
   type        = string
   default     = null
 }
 
 variable "failure_anomalies_detector_rule_name" {
-  description = "A name for this failure anomalies detector alert rule."
+  description = "A name for this \"FailureAnomaliesDetector\" alert rule."
   type        = string
   default     = null
 }
 
 variable "memory_leak_detector_rule_name" {
-  description = "A name for this potential memory leak detector alert rule."
+  description = "A name for this \"MemoryLeakDetector\" alert rule."
   type        = string
   default     = null
 }
 
 variable "request_performance_degradation_detector_rule_name" {
-  description = "A name for this response latency degradation detector alert rule."
+  description = "A name for this \"RequestPerformanceDegradationDetector\" alert rule."
   type        = string
   default     = null
 }
 
 variable "trace_severity_detector_rule_name" {
-  description = "A name for this trace severity detector alert rule."
+  description = "A name for this \"TraceSeverityDetector\" alert rule."
   type        = string
   default     = null
 }
