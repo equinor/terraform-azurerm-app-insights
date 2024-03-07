@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.0.0...v5.1.0) (2024-03-07)
+
+
+### Features
+
+* set smart detector alert rule names ([#38](https://github.com/equinor/terraform-azurerm-app-insights/issues/38)) ([55b86c4](https://github.com/equinor/terraform-azurerm-app-insights/commit/55b86c42bf4dc352db312ff46a62699b7cffe9fc))
+
 ## [5.0.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v4.0.0...v5.0.0) (2023-08-21)
 
 
