@@ -23,6 +23,42 @@ variable "action_group_id" {
   type        = string
 }
 
+variable "dependency_performance_degradation_detector_rule_name" {
+  description = "A name for this \"DependencyPerformanceDegradationDetector\" alert rule."
+  type        = string
+  default     = null
+}
+
+variable "exception_volume_changed_detector_rule_name" {
+  description = "A name for this \"ExceptionVolumeChangedDetector\" alert rule."
+  type        = string
+  default     = null
+}
+
+variable "failure_anomalies_detector_rule_name" {
+  description = "A name for this \"FailureAnomaliesDetector\" alert rule."
+  type        = string
+  default     = null
+}
+
+variable "memory_leak_detector_rule_name" {
+  description = "A name for this \"MemoryLeakDetector\" alert rule."
+  type        = string
+  default     = null
+}
+
+variable "request_performance_degradation_detector_rule_name" {
+  description = "A name for this \"RequestPerformanceDegradationDetector\" alert rule."
+  type        = string
+  default     = null
+}
+
+variable "trace_severity_detector_rule_name" {
+  description = "A name for this \"TraceSeverityDetector\" alert rule."
+  type        = string
+  default     = null
+}
+
 variable "tags" {
   description = "A map of tags to assign to the resources."
   type        = map(string)
