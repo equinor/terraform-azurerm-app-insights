@@ -18,6 +18,12 @@ variable "workspace_id" {
   type        = string
 }
 
+variable "local_authentication_disabled" {
+  description = "Disable local authentication to enable RBAC."
+  type        = bool
+  default     = true
+}
+
 variable "action_group_id" {
   description = "The ID of the action group to send smart detector alerts to."
   type        = string

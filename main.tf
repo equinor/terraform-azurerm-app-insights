@@ -51,11 +51,12 @@ locals {
 }
 
 resource "azurerm_application_insights" "this" {
-  name                = var.component_name
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  application_type    = "web"
-  workspace_id        = var.workspace_id
+  name                          = var.component_name
+  resource_group_name           = var.resource_group_name
+  location                      = var.location
+  application_type              = "web"
+  workspace_id                  = var.workspace_id
+  local_authentication_disabled = var.local_authentication_disabled
 
   # Irrelevant when "workspace_id" is set.
   # Retention must be configured in Log Analytics workspace.
