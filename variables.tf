@@ -19,7 +19,7 @@ variable "workspace_id" {
 }
 
 variable "local_authentication_disabled" {
-  description = "Disable local authentication to enable RBAC."
+  description = "Should local authentication be disabled for this Application Insights component? If true, the \"Monitoring Metrics Publisher\" role is required for Microsoft Entra authentication."
   type        = bool
   default     = true
 }
