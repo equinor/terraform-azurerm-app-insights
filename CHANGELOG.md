@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.1.0...v5.2.0) (2024-05-13)
+
+
+### Features
+
+* disable local authentication by default ([#43](https://github.com/equinor/terraform-azurerm-app-insights/issues/43)) ([c527da7](https://github.com/equinor/terraform-azurerm-app-insights/commit/c527da71872b49225c5b18ea68bd790fd389dff8))
+
 ## [5.1.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.0.0...v5.1.0) (2024-03-07)
 
 
