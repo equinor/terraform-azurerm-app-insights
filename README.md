@@ -1,6 +1,6 @@
 # Azure Application Insights Terraform module
 
-[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-<module>/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-<module>/badge)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-app-insights/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-app-insights/badge)
 [![Equinor Terraform Baseline](https://img.shields.io/badge/Equinor%20Terraform%20Baseline-1.0.0-blueviolet)](https://github.com/equinor/terraform-baseline)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
