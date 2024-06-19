@@ -38,12 +38,19 @@ resource "azurerm_monitor_action_group" "this" {
 }
 
 module "app_insights" {
-  # source = "github.com/equinor/terraform-azurerm-app-insights"
-  source = "../.."
+  source = "equinor/app-insights/azurerm"
+  version = "5.1.0"
 
   component_name      = "appi-${random_id.this.hex}"
   resource_group_name = var.resource_group_name
   location            = var.location
   workspace_id        = module.log_analytics.workspace_id
   action_group_id     = azurerm_monitor_action_group.this.id
+
+  dependency_performance_degradation_detector_rule_name = "${module.app_insights.component_name} - Dependency Latency Degradation"  # Optional
+  exception_volume_changed_detector_rule_name           = "${module.app_insights.component_name} - Exception Anomalies"             # Optional
+  failure_anomalies_detector_rule_name                  = "${module.app_insights.component_name} - Failure Anomalies"               # Optional
+  memory_leak_detector_rule_name                        = "${module.app_insights.component_name} - Potential Memory Leak"           # Optional
+  request_performance_degradation_detector_rule_name    = "${module.app_insights.component_name} - Response Latency Degradation"    # Optional
+  trace_severity_detector_rule_name                     = "${module.app_insights.component_name} - Trace Severity Degradation"      # Optional
 }
