@@ -6,6 +6,10 @@
 
 Terraform module which creates an Azure Application Insights resources.
 
+## Features
+
+- Smart detector alerts sent to given action group.
+
 ## Development
 
 1. Read [this document](https://code.visualstudio.com/docs/devcontainers/containers).
