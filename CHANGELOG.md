@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.1](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.0...v5.2.1) (2024-08-27)
+
+
+### Documentation
+
+* add features list to README ([#48](https://github.com/equinor/terraform-azurerm-app-insights/issues/48)) ([ac2046f](https://github.com/equinor/terraform-azurerm-app-insights/commit/ac2046f9fd30098cbae8ba175e0206c9ee6602c5))
+
 ## [5.2.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.1.0...v5.2.0) (2024-05-13)
 
 
