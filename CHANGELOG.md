@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.2.2](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.1...v5.2.2) (2024-10-21)
+
+
+### Bug Fixes
+
+* bump required AzAPI provider version ([#52](https://github.com/equinor/terraform-azurerm-app-insights/issues/52)) ([12795f7](https://github.com/equinor/terraform-azurerm-app-insights/commit/12795f78c447ca83cf25fa09c5a25ab96f58a093))
+* using module with AzAPI provider v2 throws error ([#50](https://github.com/equinor/terraform-azurerm-app-insights/issues/50)) ([83cd517](https://github.com/equinor/terraform-azurerm-app-insights/commit/83cd5178ac65f2017451a92728334a0d3fe56b01))
+
 ## [5.2.1](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.0...v5.2.1) (2024-08-27)
 
 
