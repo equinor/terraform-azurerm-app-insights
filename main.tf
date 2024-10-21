@@ -91,13 +91,13 @@ resource "azapi_update_resource" "this" {
   parent_id = azurerm_application_insights.this.id
   name      = "migrationToAlertRulesCompleted"
 
-  body = jsonencode({
+  body = {
     properties = {
       SendEmailsToSubscriptionOwners = false
       CustomEmails                   = []
       Enabled                        = true
     }
-  })
+  }
 
   depends_on = [azurerm_monitor_smart_detector_alert_rule.this]
 }
