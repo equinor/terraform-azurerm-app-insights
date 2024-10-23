@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.3](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.2...v5.2.3) (2024-10-23)
+
+
+### Code Refactoring
+
+* clarify alert rule name variable descriptions ([#54](https://github.com/equinor/terraform-azurerm-app-insights/issues/54)) ([c24cc36](https://github.com/equinor/terraform-azurerm-app-insights/commit/c24cc36077f02ff926c2b7f2a22c9390eb04f51f))
+
 ## [5.2.2](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.1...v5.2.2) (2024-10-21)
 
 
