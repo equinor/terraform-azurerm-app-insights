@@ -85,7 +85,7 @@ resource "azurerm_monitor_smart_detector_alert_rule" "this" {
   tags = var.tags
 }
 
-# Ref: https://learn.microsoft.com/nb-no/azure/azure-monitor/alerts/alerts-smart-detections-migration#migrate-your-smart-detection-by-using-arm-templates
+# Ref: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-smart-detections-migration#migrate-your-smart-detection-by-using-arm-templates
 resource "azapi_update_resource" "this" {
   type      = "Microsoft.Insights/components/ProactiveDetectionConfigs@2018-05-01-preview"
   parent_id = azurerm_application_insights.this.id
