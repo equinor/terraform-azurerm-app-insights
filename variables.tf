@@ -30,38 +30,44 @@ variable "action_group_id" {
 }
 
 variable "dependency_performance_degradation_detector_rule_name" {
-  description = "A name for this \"DependencyPerformanceDegradationDetector\" alert rule."
+  description = "A custom name for this Dependency Latency Degradation alert rule. If value is set to null, the default name \"Dependency Latency Degradation - <Application Insights resource name>\" will be used for this alert rule."
   type        = string
+  nullable    = true
   default     = null
 }
 
 variable "exception_volume_changed_detector_rule_name" {
-  description = "A name for this \"ExceptionVolumeChangedDetector\" alert rule."
+  description = "A custom name for this Exception Anomalies alert rule. If value is set to null, the default name \"Exception Anomalies - <Application Insights resource name>\" will be used for this alert rule."
   type        = string
+  nullable    = true
   default     = null
 }
 
 variable "failure_anomalies_detector_rule_name" {
-  description = "A name for this \"FailureAnomaliesDetector\" alert rule."
+  description = "A custom name for this Failure Anomalies alert rule. If value is set to null, the default name \"Failure Anomalies - <Application Insights resource name>\" will be used for this alert rule."
   type        = string
+  nullable    = true
   default     = null
 }
 
 variable "memory_leak_detector_rule_name" {
-  description = "A name for this \"MemoryLeakDetector\" alert rule."
+  description = "A custom name for this Potential Memory Leak alert rule. If value is set to null, the default name \"Potential Memory Leak - <Application Insights resource name>\" will be used for this alert rule."
   type        = string
+  nullable    = true
   default     = null
 }
 
 variable "request_performance_degradation_detector_rule_name" {
-  description = "A name for this \"RequestPerformanceDegradationDetector\" alert rule."
+  description = "A custom name for this Response Latency Degradation alert rule. If value is set to null, the default name \"Response Latency Degradation - <Application Insights resource name>\" will be used for this alert rule."
   type        = string
+  nullable    = true
   default     = null
 }
 
 variable "trace_severity_detector_rule_name" {
-  description = "A name for this \"TraceSeverityDetector\" alert rule."
+  description = "A custom name for this Trace Severity Degradation alert rule. If value is set to null, the default name \"Trace Severity Degradation - <Application Insights resource name>\" will be used for this alert rule."
   type        = string
+  nullable    = true
   default     = null
 }
 
