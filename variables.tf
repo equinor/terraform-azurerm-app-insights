@@ -25,7 +25,7 @@ variable "local_authentication_disabled" {
 }
 
 variable "sampling_percentage" {
-  description = "The percentage of requests to sample for Application Insights telemetry."
+  description = "Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry."
   type        = number
   default     = 100
 }
