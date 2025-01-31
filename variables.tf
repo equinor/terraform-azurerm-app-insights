@@ -24,6 +24,12 @@ variable "local_authentication_disabled" {
   default     = true
 }
 
+variable "sampling_percentage" {
+  description = "Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry."
+  type        = number
+  default     = 100
+}
+
 variable "action_group_id" {
   description = "The ID of the action group to send smart detector alerts to."
   type        = string

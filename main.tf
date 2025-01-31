@@ -57,6 +57,7 @@ resource "azurerm_application_insights" "this" {
   application_type              = "web"
   workspace_id                  = var.workspace_id
   local_authentication_disabled = var.local_authentication_disabled
+  sampling_percentage           = var.sampling_percentage
 
   # Irrelevant when "workspace_id" is set.
   # Retention must be configured in Log Analytics workspace.
