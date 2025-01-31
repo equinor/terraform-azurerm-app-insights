@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.3...v5.3.0) (2025-01-31)
+
+
+### Features
+
+* create sampling precentage variable ([#56](https://github.com/equinor/terraform-azurerm-app-insights/issues/56)) ([5c76d1b](https://github.com/equinor/terraform-azurerm-app-insights/commit/5c76d1b40155a45487954127e91773d682790800))
+
 ## [5.2.3](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.2...v5.2.3) (2024-10-23)
 
 
