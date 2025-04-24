@@ -1,55 +1,73 @@
-# Azure Application Insights Terraform module
+# Terraform module for Azure Application Insights
 
-[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-app-insights/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-app-insights/badge)
-[![Equinor Terraform Baseline](https://img.shields.io/badge/Equinor%20Terraform%20Baseline-1.0.0-blueviolet)](https://github.com/equinor/terraform-baseline)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![GitHub License](https://img.shields.io/github/license/equinor/terraform-azurerm-app-insights)](https://github.com/equinor/terraform-azurerm-app-insights/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-app-insights)](https://github.com/equinor/terraform-azurerm-app-insights/releases/latest)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-app-insights/badge)](https://developer.equinor.com/governance/scm-policy/)
 
-Terraform module which creates an Azure Application Insights resources.
+Terraform module which creates Azure Application Insights resources.
 
 ## Features
 
+- Workspace-based Application Insights component created in specified resource group.
 - Smart detector alerts sent to given action group.
 
-## Development
+## Prerequisites
 
-1. Read [this document](https://code.visualstudio.com/docs/devcontainers/containers).
+- Azure role `Contributor` at the resource group scope.
+- Azure role `Log Analytics Contributor` at the Log Analytics workspace scope.
 
-1. Clone this repository.
+## Usage
 
-1. Configure Terraform variables in a file `.devcontainer/devcontainer.env`:
+```terraform
+provider "azurerm" {
+  features {}
+}
 
-    ```env
-    TF_VAR_resource_group_name=
-    TF_VAR_location=
-    ```
+module "app_insights" {
+  source = "equinor/app-insights/azurerm"
+  version = "~> 5.3"
 
-1. Open repository in dev container.
+  component_name      = "example-component"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  workspace_id        = module.log_analytics.workspace_id
+  action_group_id     = azurerm_monitor_action_group.example.id
+}
 
-## Testing
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "westeurope"
+}
 
-1. Change to the test directory:
+module "log_analytics" {
+  source = "equinor/app-insights/azurerm"
+  version = "~> 2.4"
 
-    ```console
-    cd test
-    ```
+  workspace_name      = "example-workspace"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+}
 
-1. Login to Azure:
+resource "azurerm_monitor_action_group" "example" {
+  name                = "Application Insights Smart Detection"
+  resource_group_name = azurerm_resource_group.example.name
+  short_name          = "SmartDetect"
+  enabled             = true
 
-    ```console
-    az login
-    ```
+  arm_role_receiver {
+    name                    = "Monitoring Contributor"
+    role_id                 = "749f88d5-cbae-40b8-bcfc-e573ddc772fa"
+    use_common_alert_schema = true
+  }
 
-1. Set active subscription:
-
-    ```console
-    az account set -s <SUBSCRIPTION_NAME_OR_ID>
-    ```
-
-1. Run tests:
-
-    ```console
-    go test -timeout 60m
-    ```
+  arm_role_receiver {
+    name                    = "Monitoring Reader"
+    role_id                 = "43d0d8ad-25c7-4714-9337-8ba259a9fe05"
+    use_common_alert_schema = true
+  }
+}
+```
 
 ## Contributing
 
