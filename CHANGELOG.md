@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.1](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.0...v5.3.1) (2025-04-24)
+
+
+### Documentation
+
+* update README ([e8e2905](https://github.com/equinor/terraform-azurerm-app-insights/commit/e8e2905789bfde9b9fb8c4d102a4f8246c1e2c0d))
+
 ## [5.3.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.2.3...v5.3.0) (2025-01-31)
 
 
