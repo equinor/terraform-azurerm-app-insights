@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.2](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.1...v5.3.2) (2025-04-25)
+
+
+### Documentation
+
+* add missing prereq to README ([4fd8d18](https://github.com/equinor/terraform-azurerm-app-insights/commit/4fd8d18a13ef9367a8f94a38f8343e1afa90cf07))
+
 ## [5.3.1](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.0...v5.3.1) (2025-04-24)
 
 
