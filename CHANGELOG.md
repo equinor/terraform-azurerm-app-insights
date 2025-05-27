@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.3](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.2...v5.3.3) (2025-05-27)
+
+
+### Code Refactoring
+
+* move Smart Detector alert rules to separate resources ([#58](https://github.com/equinor/terraform-azurerm-app-insights/issues/58)) ([f2bd7bc](https://github.com/equinor/terraform-azurerm-app-insights/commit/f2bd7bc05fe36b3dcd99d60c59ab6e08e3b296e1))
+
 ## [5.3.2](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.1...v5.3.2) (2025-04-25)
 
 
