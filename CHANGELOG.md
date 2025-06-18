@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.4](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.3...v5.3.4) (2025-06-18)
+
+
+### Documentation
+
+* clarify Microsoft Entra authentication setup for applications ([#62](https://github.com/equinor/terraform-azurerm-app-insights/issues/62)) ([2b87602](https://github.com/equinor/terraform-azurerm-app-insights/commit/2b876029a9576e342be0ab3771781d82fa8d4302))
+
 ## [5.3.3](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.2...v5.3.3) (2025-05-27)
 
 
