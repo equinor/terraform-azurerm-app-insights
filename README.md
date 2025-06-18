@@ -10,6 +10,7 @@ Terraform module which creates Azure Application Insights resources.
 ## Features
 
 - Workspace-based Application Insights component created in specified resource group.
+- Microsoft Entra authentication enabled by default (see [notes](#microsoft-entra-authentication)).
 - Smart detector alerts sent to given action group.
 
 ## Prerequisites
@@ -69,6 +70,18 @@ resource "azurerm_monitor_action_group" "example" {
   }
 }
 ```
+
+## Notes
+
+### Microsoft Entra authentication
+
+Microsoft Entra authentication is enabled by default. Any Web Apps or Function Apps that should send logs to Application Insights require the following setup:
+
+- [Add a managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identities-status) to the Web App or Function App.
+- Assign Azure role `Monitoring Metrics Publisher` at the Application Insights resource scope for the managed identity.
+- Add app setting `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` and set value to `Authorization=AAD` (if using system-assigned identity) or `Authorization=AAD;ClientId={Client ID of the user-assigned identity}` (if using user-assigned identity).
+
+Please refer to [Microsoft Entra authentication documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-ad-authentication) for more information.
 
 ## Contributing
 
