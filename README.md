@@ -75,13 +75,13 @@ resource "azurerm_monitor_action_group" "example" {
 
 ### Microsoft Entra authentication
 
-Microsoft Entra authentication is enabled by default. Any Web Apps or Function Apps that should send logs to Application Insights require the following setup:
+Microsoft Entra authentication is enabled by default. Web Apps and Functions Apps require additional configuration to authenticate using Microsoft Entra:
 
-- [Add a managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identities-status) to the Web App or Function App.
-- Assign Azure role `Monitoring Metrics Publisher` at the Application Insights resource scope for the managed identity.
-- Add app setting `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` and set value to `Authorization=AAD` (if using system-assigned identity) or `Authorization=AAD;ClientId={Client ID of the user-assigned identity}` (if using user-assigned identity).
+- [Add a managed identity to the Web App or Function App](https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity).
+- Assign Azure role `Monitoring Metrics Publisher` to the managed identity at the Application Insights resource scope.
+- Add an app setting `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` and set the value to `Authorization=AAD` (for system-assigned identity) or `Authorization=AAD;ClientId={Client ID of the user-assigned identity}` (for user-assigned identity).
 
-Please refer to [Microsoft Entra authentication documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-ad-authentication) for more information.
+Please refer to [Microsoft Entra authentication for Application Insights documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-ad-authentication) for more information.
 
 ## Contributing
 
