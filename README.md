@@ -1,7 +1,5 @@
 # Terraform module for Azure Application Insights
 
-[![GitHub Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-app-insights)](https://github.com/equinor/terraform-azurerm-app-insights/releases/latest)
-
 Terraform module which creates Azure Application Insights resources.
 
 ## Features
