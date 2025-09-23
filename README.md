@@ -1,9 +1,6 @@
 # Terraform module for Azure Application Insights
 
-[![GitHub License](https://img.shields.io/github/license/equinor/terraform-azurerm-app-insights)](https://github.com/equinor/terraform-azurerm-app-insights/blob/main/LICENSE)
 [![GitHub Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-app-insights)](https://github.com/equinor/terraform-azurerm-app-insights/releases/latest)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
-[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-azurerm-app-insights/badge)](https://developer.equinor.com/governance/scm-policy/)
 
 Terraform module which creates Azure Application Insights resources.
 
