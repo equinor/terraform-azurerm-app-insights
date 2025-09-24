@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.5](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.4...v5.3.5) (2025-09-24)
+
+
+### Documentation
+
+* update badges ([662c4cc](https://github.com/equinor/terraform-azurerm-app-insights/commit/662c4cc60c699cfab07b71bf5b8cb644cf5ad5d6))
+
 ## [5.3.4](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.3...v5.3.4) (2025-06-18)
 
 
