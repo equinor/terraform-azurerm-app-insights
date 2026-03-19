@@ -30,9 +30,31 @@ variable "sampling_percentage" {
   default     = 100
 }
 
+variable "daily_data_cap_in_gb" {
+  description = "The daily data volume cap in GB for this Application Insights component."
+  type        = number
+  nullable    = false
+  default     = 10
+}
+
+variable "daily_data_cap_notifications_disabled" {
+  description = "Should email notifications be disabled when the daily data cap is reached?"
+  type        = bool
+  nullable    = false
+  default     = false
+}
+
 variable "action_group_id" {
-  description = "The ID of the action group to send smart detector alerts to."
+  description = "The ID of the action group to send alerts to."
   type        = string
+  nullable    = false
+}
+
+variable "daily_cap_reached_alert_rule_name" {
+  description = "A custom name for this Daily Data Volume Cap Reached alert rule. If value is set to null, the default name \"Daily Data Volume Cap Reached - <Application Insights resource name>\" will be used for this alert rule."
+  type        = string
+  nullable    = true
+  default     = null
 }
 
 variable "dependency_performance_degradation_detector_rule_name" {

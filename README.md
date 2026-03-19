@@ -6,13 +6,20 @@ Terraform module which creates Azure Application Insights resources.
 
 - Workspace-based Application Insights component created in specified resource group.
 - Microsoft Entra authentication enabled by default (see [notes](#microsoft-entra-authentication)).
-- Smart detector alerts sent to given action group.
+- Alerts sent to given Azure Monitor action group:
+  - Daily Data Volume Cap Reached
+  - Dependency Latency Degradation
+  - Exception Anomalies
+  - Failure Anomalies
+  - Potential Memory Leak
+  - Response Latency Degradation
+  - Trace Severity Degradation
 
 ## Prerequisites
 
 - Azure role `Contributor` at the resource group scope.
-- Azure role `Log Analytics Contributor` at the Log Analytics workspace scope.
-- Azure role `Monitoring Contributor` at the action group scope.
+- Azure role `Log Analytics Contributor` at the Azure Log Analytics workspace scope.
+- Azure role `Monitoring Contributor` at the Azure Monitor action group scope.
 
 ## Usage
 
@@ -47,19 +54,13 @@ module "log_analytics" {
 }
 
 resource "azurerm_monitor_action_group" "example" {
-  name                = "Application Insights Smart Detection"
+  name                = "example-ag"
   resource_group_name = azurerm_resource_group.example.name
-  short_name          = "SmartDetect"
+  short_name          = "alerts"
   enabled             = true
 
   arm_role_receiver {
-    name                    = "Monitoring Contributor"
-    role_id                 = "749f88d5-cbae-40b8-bcfc-e573ddc772fa"
-    use_common_alert_schema = true
-  }
-
-  arm_role_receiver {
-    name                    = "Monitoring Reader"
+    name                    = "Notify Monitoring Readers"
     role_id                 = "43d0d8ad-25c7-4714-9337-8ba259a9fe05"
     use_common_alert_schema = true
   }
