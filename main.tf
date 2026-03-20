@@ -28,7 +28,6 @@ resource "azurerm_monitor_activity_log_alert" "daily_cap_reached" {
   criteria {
     category       = "Administrative"
     operation_name = "Microsoft.Insights/Components/DailyCapReached/Action"
-    level          = "Warning"
   }
 
   action {
