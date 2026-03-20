@@ -6,14 +6,15 @@ Terraform module which creates Azure Application Insights resources.
 
 - Workspace-based Application Insights component created in specified resource group.
 - Microsoft Entra authentication enabled by default (see [notes](#microsoft-entra-authentication)).
+- Daily data volume cap set to 10 GB by default to protect against unexpected spikes in data volume.
 - Alerts sent to given Azure Monitor action group:
-  - Daily Data Volume Cap Reached
-  - Dependency Latency Degradation
-  - Exception Anomalies
-  - Failure Anomalies
-  - Potential Memory Leak
-  - Response Latency Degradation
-  - Trace Severity Degradation
+  - Daily data volume cap reached
+  - Dependency latency degradation
+  - Exception anomalies
+  - Failure anomalies
+  - Potential memory leak
+  - Response latency degradation
+  - Trace severity degradation
 
 ## Prerequisites
 

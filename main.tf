@@ -21,7 +21,7 @@ resource "azurerm_application_insights" "this" {
 resource "azurerm_monitor_activity_log_alert" "daily_cap_reached" {
   name                = coalesce(var.daily_cap_reached_alert_rule_name, "Daily Data Volume Cap Reached - ${var.component_name}")
   resource_group_name = var.resource_group_name
-  location            = var.location
+  location            = "global"
   scopes              = [azurerm_application_insights.this.id]
   enabled             = true
 
