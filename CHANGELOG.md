@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.5...v5.4.0) (2026-03-20)
+
+
+### Features
+
+* set daily data volume cap to 10 GB by default ([#65](https://github.com/equinor/terraform-azurerm-app-insights/issues/65)) ([bc02ab4](https://github.com/equinor/terraform-azurerm-app-insights/commit/bc02ab44fdc4bb4584e63092fe7c73cab65b922a))
+
 ## [5.3.5](https://github.com/equinor/terraform-azurerm-app-insights/compare/v5.3.4...v5.3.5) (2025-09-24)
 
 

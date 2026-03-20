@@ -31,7 +31,7 @@ provider "azurerm" {
 
 module "app_insights" {
   source = "equinor/app-insights/azurerm"
-  version = "~> 5.3"
+  version = "~> 5.4"
 
   component_name      = "example-component"
   resource_group_name = azurerm_resource_group.example.name
