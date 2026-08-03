@@ -2,7 +2,7 @@
 
 Terraform module which creates Azure Application Insights resources.
 
-This module requires Terraform 1.15.8 and AzureRM 5.x.
+This module requires Terraform >= 1.1.0, < 2.0.0 and AzureRM 5.x.
 
 ## Features
 
@@ -28,7 +28,7 @@ This module requires Terraform 1.15.8 and AzureRM 5.x.
 
 ```terraform
 terraform {
-  required_version = "= 1.15.8"
+  required_version = ">= 1.1.0, < 2.0.0"
 
   required_providers {
     azurerm = {
