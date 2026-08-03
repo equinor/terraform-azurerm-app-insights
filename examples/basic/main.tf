@@ -1,3 +1,14 @@
+terraform {
+  required_version = "= 1.15.8"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 5.0.0, < 6.0.0"
+    }
+  }
+}
+
 provider "azurerm" {
   features {
     resource_group {
@@ -11,7 +22,7 @@ resource "random_id" "this" {
 }
 
 module "log_analytics" {
-  source = "github.com/equinor/terraform-azurerm-log-analytics?ref=v1.4.0"
+  source = "github.com/equinor/terraform-azurerm-log-analytics?ref=v2.5.0"
 
   workspace_name      = "log-${random_id.this.hex}"
   resource_group_name = var.resource_group_name
@@ -41,9 +52,11 @@ module "app_insights" {
   # source = "github.com/equinor/terraform-azurerm-app-insights"
   source = "../.."
 
-  component_name      = "appi-${random_id.this.hex}"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  workspace_id        = module.log_analytics.workspace_id
-  action_group_id     = azurerm_monitor_action_group.this.id
+  component_name                       = "appi-${random_id.this.hex}"
+  resource_group_name                  = var.resource_group_name
+  location                             = var.location
+  workspace_id                         = module.log_analytics.workspace_id
+  action_group_id                      = azurerm_monitor_action_group.this.id
+  local_authentication_enabled         = false
+  daily_data_cap_notifications_enabled = true
 }

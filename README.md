@@ -2,6 +2,8 @@
 
 Terraform module which creates Azure Application Insights resources.
 
+This module requires Terraform 1.15.8 and AzureRM 5.x.
+
 ## Features
 
 - Workspace-based Application Insights component created in specified resource group.
@@ -25,6 +27,17 @@ Terraform module which creates Azure Application Insights resources.
 ## Usage
 
 ```terraform
+terraform {
+  required_version = "= 1.15.8"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 5.0.0, < 6.0.0"
+    }
+  }
+}
+
 provider "azurerm" {
   features {}
 }
@@ -33,11 +46,13 @@ module "app_insights" {
   source = "equinor/app-insights/azurerm"
   version = "~> 5.4"
 
-  component_name      = "example-component"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  workspace_id        = module.log_analytics.workspace_id
-  action_group_id     = azurerm_monitor_action_group.example.id
+  component_name                       = "example-component"
+  resource_group_name                  = azurerm_resource_group.example.name
+  location                             = azurerm_resource_group.example.location
+  workspace_id                         = module.log_analytics.workspace_id
+  action_group_id                      = azurerm_monitor_action_group.example.id
+  local_authentication_enabled         = false
+  daily_data_cap_notifications_enabled = true
 }
 
 resource "azurerm_resource_group" "example" {
