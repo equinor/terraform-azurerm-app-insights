@@ -4,11 +4,11 @@ resource "azurerm_application_insights" "this" {
   location                     = var.location
   application_type             = "web"
   workspace_id                 = var.workspace_id
-  local_authentication_enabled = var.local_authentication_enabled
+  local_authentication_enabled = !var.local_authentication_disabled
   sampling_percentage          = var.sampling_percentage
 
   daily_data_cap_in_gb                 = var.daily_data_cap_in_gb
-  daily_data_cap_notifications_enabled = var.daily_data_cap_notifications_enabled
+  daily_data_cap_notifications_enabled = !var.daily_data_cap_notifications_disabled
 
   # Irrelevant when "workspace_id" is set.
   # Retention must be configured in Log Analytics workspace.

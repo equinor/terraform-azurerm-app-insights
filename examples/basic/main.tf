@@ -52,11 +52,11 @@ module "app_insights" {
   # source = "github.com/equinor/terraform-azurerm-app-insights"
   source = "../.."
 
-  component_name                       = "appi-${random_id.this.hex}"
-  resource_group_name                  = var.resource_group_name
-  location                             = var.location
-  workspace_id                         = module.log_analytics.workspace_id
-  action_group_id                      = azurerm_monitor_action_group.this.id
-  local_authentication_enabled         = false
-  daily_data_cap_notifications_enabled = true
+  component_name                        = "appi-${random_id.this.hex}"
+  resource_group_name                   = var.resource_group_name
+  location                              = var.location
+  workspace_id                          = module.log_analytics.workspace_id
+  action_group_id                       = azurerm_monitor_action_group.this.id
+  local_authentication_disabled         = true
+  daily_data_cap_notifications_disabled = false
 }

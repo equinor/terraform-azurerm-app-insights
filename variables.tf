@@ -18,10 +18,10 @@ variable "workspace_id" {
   type        = string
 }
 
-variable "local_authentication_enabled" {
-  description = "Should local authentication be enabled for this Application Insights component? If false, the \"Monitoring Metrics Publisher\" role is required for Microsoft Entra authentication."
+variable "local_authentication_disabled" {
+  description = "Should local authentication be disabled for this Application Insights component? If true, the \"Monitoring Metrics Publisher\" role is required for Microsoft Entra authentication."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "sampling_percentage" {
@@ -37,11 +37,11 @@ variable "daily_data_cap_in_gb" {
   default     = 10
 }
 
-variable "daily_data_cap_notifications_enabled" {
-  description = "Should email notifications be enabled when the daily data cap is reached?"
+variable "daily_data_cap_notifications_disabled" {
+  description = "Should email notifications be disabled when the daily data cap is reached?"
   type        = bool
   nullable    = false
-  default     = true
+  default     = false
 }
 
 variable "action_group_id" {

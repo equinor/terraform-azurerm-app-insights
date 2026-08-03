@@ -2,7 +2,7 @@
 
 Terraform module which creates Azure Application Insights resources.
 
-This module requires Terraform >= 1.1.0, < 2.0.0 and AzureRM 5.x.
+The module keeps its existing disabled-form input interface and translates those values internally to the AzureRM v5 enabled-form resource arguments.
 
 ## Features
 
@@ -27,17 +27,6 @@ This module requires Terraform >= 1.1.0, < 2.0.0 and AzureRM 5.x.
 ## Usage
 
 ```terraform
-terraform {
-  required_version = ">= 1.1.0, < 2.0.0"
-
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 5.0.0, < 6.0.0"
-    }
-  }
-}
-
 provider "azurerm" {
   features {}
 }
@@ -46,13 +35,11 @@ module "app_insights" {
   source = "equinor/app-insights/azurerm"
   version = "~> 5.4"
 
-  component_name                       = "example-component"
-  resource_group_name                  = azurerm_resource_group.example.name
-  location                             = azurerm_resource_group.example.location
-  workspace_id                         = module.log_analytics.workspace_id
-  action_group_id                      = azurerm_monitor_action_group.example.id
-  local_authentication_enabled         = false
-  daily_data_cap_notifications_enabled = true
+  component_name                          = "example-component"
+  resource_group_name                     = azurerm_resource_group.example.name
+  location                                = azurerm_resource_group.example.location
+  workspace_id                            = module.log_analytics.workspace_id
+  action_group_id                         = azurerm_monitor_action_group.example.id
 }
 
 resource "azurerm_resource_group" "example" {
@@ -88,6 +75,8 @@ resource "azurerm_monitor_action_group" "example" {
 ### Microsoft Entra authentication
 
 Microsoft Entra authentication is enabled by default. Web Apps and Functions Apps require additional configuration to authenticate using Microsoft Entra:
+
+The module preserves its existing public inputs `local_authentication_disabled` and `daily_data_cap_notifications_disabled`. Internally, those are inverted to satisfy the AzureRM v5 `*_enabled` arguments on `azurerm_application_insights`.
 
 - [Add a managed identity to the Web App or Function App](https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity).
 - Assign Azure role `Monitoring Metrics Publisher` to the managed identity at the Application Insights resource scope.
