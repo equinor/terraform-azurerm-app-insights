@@ -74,8 +74,6 @@ resource "azurerm_monitor_action_group" "example" {
 
 Microsoft Entra authentication is enabled by default. Web Apps and Functions Apps require additional configuration to authenticate using Microsoft Entra:
 
-The module preserves its existing public inputs `local_authentication_disabled` and `daily_data_cap_notifications_disabled`. Internally, those are inverted to satisfy the AzureRM v5 `*_enabled` arguments on `azurerm_application_insights`.
-
 - [Add a managed identity to the Web App or Function App](https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity).
 - Assign Azure role `Monitoring Metrics Publisher` to the managed identity at the Application Insights resource scope.
 - Add an app setting `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` and set the value to `Authorization=AAD` (for system-assigned identity) or `Authorization=AAD;ClientId={Client ID of the user-assigned identity}` (for user-assigned identity).
