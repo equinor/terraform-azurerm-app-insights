@@ -2,8 +2,6 @@
 
 Terraform module which creates Azure Application Insights resources.
 
-The module keeps its existing disabled-form input interface and translates those values internally to the AzureRM v5 enabled-form resource arguments.
-
 ## Features
 
 - Workspace-based Application Insights component created in specified resource group.

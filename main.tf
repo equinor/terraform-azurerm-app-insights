@@ -4,10 +4,12 @@ resource "azurerm_application_insights" "this" {
   location                     = var.location
   application_type             = "web"
   workspace_id                 = var.workspace_id
+  # Kept variable name to preserve backward compatibility, but the variable is now inverted to "local_authentication_disabled" to match the Azure API.
   local_authentication_enabled = !var.local_authentication_disabled
   sampling_percentage          = var.sampling_percentage
 
   daily_data_cap_in_gb                 = var.daily_data_cap_in_gb
+  # Kept variable name to preserve backward compatibility, but the variable is now inverted to "daily_data_cap_notifications_disabled" to match the Azure API.
   daily_data_cap_notifications_enabled = !var.daily_data_cap_notifications_disabled
 
   # Irrelevant when "workspace_id" is set.
