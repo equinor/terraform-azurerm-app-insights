@@ -35,11 +35,11 @@ module "app_insights" {
   source = "equinor/app-insights/azurerm"
   version = "~> 5.4"
 
-  component_name                          = "example-component"
-  resource_group_name                     = azurerm_resource_group.example.name
-  location                                = azurerm_resource_group.example.location
-  workspace_id                            = module.log_analytics.workspace_id
-  action_group_id                         = azurerm_monitor_action_group.example.id
+  component_name      = "example-component"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  workspace_id        = module.log_analytics.workspace_id
+  action_group_id     = azurerm_monitor_action_group.example.id
 }
 
 resource "azurerm_resource_group" "example" {
